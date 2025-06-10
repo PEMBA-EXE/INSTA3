@@ -3120,24 +3120,21 @@ headers = {
     'x-fb-lsd': re.search('"LSD",\\,{"token":"(.*?)"', str(resp)).group(1),
     'x-ig-app-id': '1217981644879628'
 }
-            'fb_api_caller_class': 'RelayModern',
-            'fb_api_req_friendly_name': 'useFXSettingsTwoFactorGenerateTOTPKeyMutation',
-            'variables': json.dumps({
-                'input': {
-                    'client_mutation_id': f'''{self.ClientId(resp)}''',
-                    'actor_id': f'''{self.AccountId(resp)}''',
-                    'account_id': f'''{self.AccountId(resp)}''',
-                    'account_type': 'INSTAGRAM',
-                    'device_id': 'device_id_fetch_ig_did',
-                    'fdid': 'device_id_fetch_ig_did' } }),
-            'doc_id': '6282672078501565' })
-        get_p = requests.post('https://accountscenter.instagram.com/api/graphql/', data = data, headers = head, cookies = {
-            'cookie': cokie }).text
-        if 'totp_key' in str(get_p):
-            xnxx = re.search('"key_text":"(.*?)"', str(get_p)).group(1)
-            hpsx = xnxx.replace(' ', '')
-            kode = requests.get(f'''https://2fa.live/tok/{hpsx}''').json()['token']
-            self.info.update({
+            data = {
+    'fb_api_caller_class': 'RelayModern',
+    'fb_api_req_friendly_name': 'useFXSettingsTwoFactorGenerateTOTPKeyMutation',
+    'variables': json.dumps({
+        'input': {
+            'client_mutation_id': f'''{self.ClientId(resp)}''',
+            'actor_id': f'''{self.AccountId(resp)}''',
+            'account_id': f'''{self.AccountId(resp)}''',
+            'account_type': 'INSTAGRAM',
+            'device_id': 'device_id_fetch_ig_did',
+            'fdid': 'device_id_fetch_ig_did'
+        }
+    }),
+    'doc_id': '6282672078501565'
+}
                 'SecretKey': hpsx })
             self.AktifkanA2f(cokie, kode, resp, hpsx)
         self.info.update({
