@@ -3104,11 +3104,14 @@ build = (lambda: ''.join(random.choice('1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ') f
 return f'''Mozilla/5.0 (Linux; Android 8.1.0; vivo 1820 Build/{build}; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(random.randint(75, 120))}.0.{str(random.randint(4500, 5500))}.{str(random.randint(75, 150))} Mobile Safari/537.36 Instagram {versi} Android (27/8.1.0; {dpis}; {pxl}; vivo; vivo 1820; 1820; {com}; {basa}; {kode})'''
 
 
-    def OnAuthenA2f(self, cokie, url = ('https://accountscenter.instagram.com/personal_info/contact_points/?contact_point_type=email&dialog_type=add_contact_point',)):
-        resp = session.get(url, cookies = {
-            'cookie': cokie }).text
-        head = self.headers_graph(resp)
-        head.update({
+def OnAuthenA2f(self, cokie, url=('https://accountscenter.instagram.com/personal_info/contact_points/?contact_point_type=email&dialog_type=add_contact_point',)):
+    resp = session.get(url, cookies={
+        'cookie': cokie
+    }).text
+    head = self.headers_graph(resp)
+    head.update({
+        # continue with your code...
+    })
             'Host': 'accountscenter.instagram.com',
             'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Instagram 243.1.0.14.111 (iPhone13,3; iOS 15_5; en_US; en-US; scale=3.00; 1170x2532; 382468104) NW/3',
             'x-fb-friendly-name': 'useFXSettingsTwoFactorGenerateTOTPKeyMutation',
