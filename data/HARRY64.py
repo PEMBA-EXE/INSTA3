@@ -3112,14 +3112,14 @@ def OnAuthenA2f(self, cokie, url=('https://accountscenter.instagram.com/personal
     head.update({
         # continue with your code...
     })
-            'Host': 'accountscenter.instagram.com',
-            'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Instagram 243.1.0.14.111 (iPhone13,3; iOS 15_5; en_US; en-US; scale=3.00; 1170x2532; 382468104) NW/3',
-            'x-fb-friendly-name': 'useFXSettingsTwoFactorGenerateTOTPKeyMutation',
-            'content-type': 'application/x-www-form-urlencoded',
-            'x-fb-lsd': re.search('"LSD",\\[\\],{"token":"(.*?)"', str(resp)).group(1),
-            'x-ig-app-id': '1217981644879628' })
-        data = self.data_graph(resp)
-        data.update({
+headers = {
+    'Host': 'accountscenter.instagram.com',
+    'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Instagram 243.1.0.14.111 (iPhone13,3; iOS 15_5; en_US; en-US; scale=3.00; 1170x2532; 382468104) NW/3',
+    'x-fb-friendly-name': 'useFXSettingsTwoFactorGenerateTOTPKeyMutation',
+    'content-type': 'application/x-www-form-urlencoded',
+    'x-fb-lsd': re.search('"LSD",\\,{"token":"(.*?)"', str(resp)).group(1),
+    'x-ig-app-id': '1217981644879628'
+}
             'fb_api_caller_class': 'RelayModern',
             'fb_api_req_friendly_name': 'useFXSettingsTwoFactorGenerateTOTPKeyMutation',
             'variables': json.dumps({
