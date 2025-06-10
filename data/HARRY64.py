@@ -3096,9 +3096,12 @@ class Require:
             '217948952',
             '217948982',
             '216817269'])
-        build = (lambda .0: for y in .0:
-random.choice('1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890')None)(range(6)())
-        return f'''Mozilla/5.0 (Linux; Android 8.1.0; vivo 1820 Build/{build}; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(random.randint(75, 120))}.0.{str(random.randint(4500, 5500))}.{str(random.randint(75, 150))} Mobile Safari/537.36 Instagram {versi} Android (27/8.1.0; {dpis}; {pxl}; vivo; vivo 1820; 1820; {com}; {basa}; {kode})'''
+import random
+
+# Generates a random 6-character build string
+build = (lambda: ''.join(random.choice('1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ') for _ in range(6)))()
+
+return f'''Mozilla/5.0 (Linux; Android 8.1.0; vivo 1820 Build/{build}; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(random.randint(75, 120))}.0.{str(random.randint(4500, 5500))}.{str(random.randint(75, 150))} Mobile Safari/537.36 Instagram {versi} Android (27/8.1.0; {dpis}; {pxl}; vivo; vivo 1820; 1820; {com}; {basa}; {kode})'''
 
 
     def OnAuthenA2f(self, cokie, url = ('https://accountscenter.instagram.com/personal_info/contact_points/?contact_point_type=email&dialog_type=add_contact_point',)):
