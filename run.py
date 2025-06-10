@@ -18,7 +18,7 @@ def main():
         arc = "64BIT"
         print(f' •\x1b[38;5;196m ->\x1b[37m 64BIT DETECTED')
         print(f' •\x1b[38;5;196m ->\x1b[37m STARTING INSTA3 ')
-        import data.ins-ENC
+        import data.P3MBA
     else:
         arc = "INVALID"
         exit("•\x1b[38;5;196m ->\x1b[37m UNKNOWN DEVICE TYPE")
